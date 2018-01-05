@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;  
+ 
 
 namespace Wonderland_Private_Server.Tutorials
 {
@@ -17,6 +19,38 @@ namespace Wonderland_Private_Server.Tutorials
     //    //return the following information
 
     //    //MySql/SQl Settings
+    // //The following C# Program is used to create a MySqlConnection object, assign the connection string, and open the connection
+using System;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+namespace WindowsApplication1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string connetionString = null;
+            MySqlConnection cnn ;
+			connetionString = "server=localhost;database=testDB;uid=root;pwd=abc123;";
+            cnn = new MySqlConnection(connetionString);
+            try
+            {
+                cnn.Open();
+                MessageBox.Show ("Connection Open ! ");
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection ! ");
+            }
+        }
+    }
+}
+
     //    /// <summary>
     //    /// Username for authencation
     //    /// </summary>
